@@ -12,4 +12,4 @@ def num_times_letter_in_name(name):
         #count letter if it is a repeat
     return letter_dictionary
 
-print num_times_letter_in_name("Alais de Hoogh") 
+print num_times_letter_in_name("Alais de Hoogh")
