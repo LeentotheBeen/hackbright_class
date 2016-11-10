@@ -1,4 +1,4 @@
-shopping_dictionary = {"Berkeley Bowl": ["milk", "pomegranate", "cheese"]}
+shopping_dictionary = {"Berkeley Bowl": ["milk", "pomegranate", "cheese"], "Target": []}
 
 ###
 def display_menu():
@@ -43,20 +43,22 @@ def add_new_item_to_list(cart, item):
 #remove item in list (remove value, return new list)
 def remove_item_from_list(cart, item):
     if cart in shopping_dictionary:
-        del shopping_dictionary[item : cart] 
-    # for cart in shopping_dictionary(cart):
-    #     cart.remove(item)
-    #     return removed_item
-    # else:
-    #     return "There is no %s in this list." % item
-    return shopping_dictionary
-
+        shopping_dictionary[cart].remove(item)
+        return shopping_dictionary[cart]
+    else:
+        return "There is no %s in this list. Try another item. " % (item)
+        return shopping_dictionary[cart]
 
 #Selection 6 - Remove an entire store list from the dictionary
 #remove store (key) from dictionary (return dictionary)
+def remove_cart(cart):
+    del shopping_dictionary[cart]
+    return shopping_dictionary
 
 #Selection 7 - Exit from the program
 #Exit
+def exit_program():
+    return "You've completed your changes. Goodbye!"
 
 def main():
     # display_menu()
@@ -65,19 +67,36 @@ def main():
     # print show_specific_list("Berkeley Bowl")
     # print add_new_list("Target")
     # print add_new_item_to_list("Target", "grapes")
-    print remove_item_from_list("Berkeley Bowl", "milk")
+    # print remove_item_from_list("Berkeley Bowl", "oatmeal")
+    # print remove_cart("Berkeley Bowl")
+    # print exit_program()
 
-
-    # while(True):
-    #     display_menu()
-    #     user_input()
-    # if user_input == 1:
-    #     display_all_lists()
-    # is user_input == 2:
-    #     display_list
-    # is user_input == 4
-    #     cart = raw_input("What shopping list do you want to add to? ")
-    #     item = raw_input("What item do you want to add to this list? ")
+    while(True):
+        display_menu()
+        user_choice = raw_input("Select a number from the menu. ")
+        user_input(user_choice)
+        if user_input == 1:
+            print show_all_lists()
+        elif user_input == 2:
+            cart = raw_input("Select the list you would like to show. ")
+            print show_specific_list(cart)
+        elif user_input == 3:
+            cart = raw_input("Name your new list. ")
+            print add_new_list(cart)
+        elif user_input == 4:
+            cart = raw_input("Select the list you would like to add to. ")
+            item = raw_input("Add an item to the list. ")
+            print add_new_item_to_list(cart,item)
+        elif user_input == 5:
+            cart = raw_input("Select the list you would like to remove from. ")
+            item = raw_input("Remove an item from the list. ")
+            print remove_item_from_list(cart,item)
+        elif user_input == 6:
+            cart = raw_input("Select the list you would like to remove. ")
+            print remove_cart(cart)
+        else:
+            print exit_program
+            break
 
 
 if __name__ == '__main__':
