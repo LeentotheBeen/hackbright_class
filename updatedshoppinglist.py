@@ -73,9 +73,8 @@ def main():
 
     while(True):
         display_menu()
-        user_choice = raw_input("Select a number from the menu. ")
-        user_input(user_choice)
-        if user_input == 1:
+        user_choice = int(raw_input("Select a number from the menu. "))
+        if user_choice == 1:
             print show_all_lists()
         elif user_input == 2:
             cart = raw_input("Select the list you would like to show. ")
@@ -95,7 +94,7 @@ def main():
             cart = raw_input("Select the list you would like to remove. ")
             print remove_cart(cart)
         else:
-            print exit_program
+            print exit_program()
             break
 
 
