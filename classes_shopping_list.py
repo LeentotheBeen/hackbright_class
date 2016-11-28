@@ -1,3 +1,19 @@
+class Item(object):
+    def __init__(self, name, brand):
+        self.name = name
+        self.brand = brand
+    def print_full_name(self):
+        print "%s by %s" % (self.name, self.brand)
+
+class Cart(object):
+    def __init__(self, store, owner):
+        self.store = store
+        self.owner = owner
+        self.items = []
+        self.active = True
+    def is_active_and_empty_cart(self):
+        
+
 shopping_dictionary = {"berkeley bowl": ["milk", "pomegranate", "cheese"], "target": []}
 
 ###
